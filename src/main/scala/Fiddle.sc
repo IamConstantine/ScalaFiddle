@@ -33,6 +33,12 @@ def g() = {
 0 :: list
 List(0) ::: list
 
+def echo(str: String*) = str foreach println
+echo("Hello", "World")
+
+val args = Array("Hello", "World")
+echo(args: _)
+
 
 
 
