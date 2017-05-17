@@ -1,15 +1,15 @@
 //An example of mixin composition
 
+trait RichIterator extends AbsIterator {
+  def foreach(f: T => Unit): Unit = while (hasNext) f(next)
+}
+
 abstract class AbsIterator {
   type T
 
   def hasNext: Boolean
 
   def next: T
-}
-
-trait RichIterator extends AbsIterator {
-  def foreach(f: T => Unit): Unit = while (hasNext) f(next)
 }
 
 class StringIterator(s: String) extends AbsIterator {

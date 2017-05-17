@@ -1,9 +1,12 @@
+//implicit to convert 2 to Rational implicitly
+implicit def intToRational(x: Int) = new Rational(x)
+
 class Rational(n: Int, d: Int) {
   require(d != 0)
 
-  private val g = gcd(n.abs, d.abs)
   val numer: Int = n / g
   val denom: Int = d / g
+  private val g = gcd(n.abs, d.abs)
 
   def this(n: Int) = this(n, 1)
 
@@ -11,14 +14,13 @@ class Rational(n: Int, d: Int) {
 
   def +(that: Rational) = add(that)
 
-  def *(that: Rational) = Rational(that.numer * numer, that.denom * denom)
-
-  def *(i: Int) = Rational(i * numer, denom)
-
-
   def add(that: Rational) = {
     Rational(that.numer * denom + that.denom * numer, that.denom * denom)
   }
+
+  def *(that: Rational) = Rational(that.numer * numer, that.denom * denom)
+
+  def *(i: Int) = Rational(i * numer, denom)
 
   def <(that: Rational) = {
     that.denom * numer < denom * that.numer
@@ -38,9 +40,6 @@ object Rational {
 
   def apply(n: Int): Rational = new Rational(n, 1)
 }
-
-//implicit to convert 2 to Rational implicitly
-implicit def intToRational(x: Int) = new Rational(x)
 
 Rational(5)
 Rational(4, 3) add Rational(5, 3)
