@@ -1,4 +1,4 @@
-
+//An example of mixin composition
 
 abstract class AbsIterator {
   type T
