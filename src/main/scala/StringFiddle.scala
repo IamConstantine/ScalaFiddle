@@ -5,8 +5,21 @@ class StringFiddle(val str: String) {
 
   def mostCommonWord = str.toLowerCase.split(" ").groupBy(a => a).maxBy(_._2.length)._1
 
-  def mostCommonLetter = str.toLowerCase.filter(Character.isAlphabetic(_)).toCharArray.groupBy(ch=>ch).maxBy(_._2.length)._1
+  def mostCommonLetter = str.toLowerCase.filter(Character.isAlphabetic(_)).toCharArray.groupBy(ch => ch).maxBy(_._2.length)._1
 
   def mapOfLetterAndWord =
-    str.toLowerCase.split(" ").flatMap(str=>str.filter(Character.isAlphabetic(_)).toCharArray.map((_, str))).distinct.groupBy(_._1).mapValues(_.map(_._2))
+    str.toLowerCase
+      .split(" ")
+      .flatMap(
+        str => str.filter(Character.isAlphabetic(_)).toCharArray.map((_, str))
+      )
+      .distinct
+      .groupBy(_._1)
+      .mapValues(_.map(_._2))
+}
+
+object StringFiddle {
+  def apply(str: String) = new StringFiddle(str)
+
+  def charListFrom(strList: List[String]) = strList.flatMap(_.toLowerCase.toCharArray).distinct
 }
