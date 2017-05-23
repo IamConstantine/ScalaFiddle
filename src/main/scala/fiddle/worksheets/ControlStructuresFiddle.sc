@@ -25,7 +25,7 @@ def fileLines(file: java.io.File) =
 
 //catching Exception using pattern matching
 try {
-  val files = new File("..").listFiles().toList
+  val files = new File("src/test").listFiles().toList
 } catch {
     case ex: FileNotFoundException => println("File not found")
 }
