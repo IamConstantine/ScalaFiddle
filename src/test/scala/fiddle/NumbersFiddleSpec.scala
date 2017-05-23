@@ -1,9 +1,10 @@
 package fiddle
+
 import org.scalatest.{FlatSpec, Matchers}
 
-class NumbersFiddleSpec extends FlatSpec with Matchers{
+class NumbersFiddleSpec extends FlatSpec with Matchers {
 
-  val testVector = Vector(1, 32,45, 7, 3)
+  val testVector = Vector(1, 32, 45, 7, 3)
   val numbersFiddle = NumbersFiddle(testVector)
 
   "A NumbersFiddle" should "create a vector with square of all elements" in {
@@ -19,16 +20,16 @@ class NumbersFiddleSpec extends FlatSpec with Matchers{
     assert(NumbersFiddle.median(1 to 5) == 3)
     assert(NumbersFiddle.median(1 to 4) == 2.5)
 
-    assert(NumbersFiddle.median(Seq(1.1,2.3,3.5,4.0)) == 2.9)
-    assert(NumbersFiddle.median(Seq(1.1,2.3,3.5,4.0,5.6)) == 3.5)
+    assert(NumbersFiddle.median(Seq(1.1, 2.3, 3.5, 4.0)) == 2.9)
+    assert(NumbersFiddle.median(Seq(1.1, 2.3, 3.5, 4.0, 5.6)) == 3.5)
   }
   it should "multiply list and map" in {
-    val multiplyListAndMap = NumbersFiddle.multiplyListAndMap((1 to 4).toList, Map(1->3, 3->5))
+    val multiplyListAndMap = NumbersFiddle.multiplyListAndMap((1 to 4).toList, Map(1 -> 3, 3 -> 5))
     assert(multiplyListAndMap == List(3, 15))
   }
   it should "return gcd of two numbers" in {
-    NumbersFiddle.gcd(15, 24) should equal (3)
-    NumbersFiddle.gcd(3, 15) should equal (3)
-    NumbersFiddle.gcd(18, 24) should equal (6)
+    NumbersFiddle.gcd(15, 24) should equal(3)
+    NumbersFiddle.gcd(3, 15) should equal(3)
+    NumbersFiddle.gcd(18, 24) should equal(6)
   }
 }

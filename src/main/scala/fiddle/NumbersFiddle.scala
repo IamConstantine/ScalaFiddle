@@ -20,16 +20,16 @@ object NumbersFiddle {
   }
 
   //def gcd(a: Int, b: Int) = if (b == 0) a else gcd(b, a % b)
-//  def gcd(x: Int, y: Int) = {
-//    var a = x
-//    var b = y
-//    while (b != 0) {
-//      val tmp = a
-//      a = b
-//      b = tmp % b
-//    }
-//    a
-//  }
+  //  def gcd(x: Int, y: Int) = {
+  //    var a = x
+  //    var b = y
+  //    while (b != 0) {
+  //      val tmp = a
+  //      a = b
+  //      b = tmp % b
+  //    }
+  //    a
+  //  }
 
   def gcd(a: Int, b: Int): Int = b match {
     case 0 => a

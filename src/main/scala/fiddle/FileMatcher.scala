@@ -1,3 +1,5 @@
+package fiddle
+
 import java.io.File
 
 //Refer Programming in scala 2nd edition chapter 9 - higher order funcitons
