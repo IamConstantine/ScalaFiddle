@@ -1,9 +1,9 @@
 package fiddle
 
-import fiddle.CodeBlockTimer.timeit
+import fiddle.CodeBlockUtility.timeit
 import org.scalatest.FunSuite
 
-class CodeBlockTimerTest extends FunSuite {
+class CodeBlockUtilityTest extends FunSuite {
   test("Code execution time") {
     val result = timeit {
       StringFiddle("It is one thing to praise discipline and another to submit to it").longestWord

@@ -1,6 +1,6 @@
 package fiddle
 
-object CodeBlockTimer {
+object CodeBlockUtility {
   def timeit[R](block: => R): R = {
     val startTime = System.nanoTime()
     val result = block
