@@ -18,4 +18,5 @@ object NumbersFiddle {
     } else
       seq(seq.size / 2).toDouble
   }
+  def multiplyListAndMap(x: List[Int], y: Map[Int, Double]) = x.filter(y.contains).map(x=> x * y(x))
 }
