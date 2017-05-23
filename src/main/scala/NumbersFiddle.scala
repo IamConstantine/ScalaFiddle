@@ -18,5 +18,23 @@ object NumbersFiddle {
     } else
       seq(seq.size / 2).toDouble
   }
-  def multiplyListAndMap(x: List[Int], y: Map[Int, Double]) = x.filter(y.contains).map(x=> x * y(x))
+
+  //def gcd(a: Int, b: Int) = if (b == 0) a else gcd(b, a % b)
+//  def gcd(x: Int, y: Int) = {
+//    var a = x
+//    var b = y
+//    while (b != 0) {
+//      val tmp = a
+//      a = b
+//      b = tmp % b
+//    }
+//    a
+//  }
+
+  def gcd(a: Int, b: Int): Int = b match {
+    case 0 => a
+    case _ => gcd(b, a % b)
+  }
+
+  def multiplyListAndMap(x: List[Int], y: Map[Int, Double]) = x.filter(y.contains).map(x => x * y(x))
 }
