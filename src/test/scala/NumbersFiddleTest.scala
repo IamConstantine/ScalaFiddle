@@ -14,9 +14,11 @@ class NumbersFiddleTest extends FlatSpec {
   it should "square root the sum of all elements of vector" in {
     assert(numbersFiddle.z == 9.38083151964686)
   }
-
   it should "return median of sequence" in {
     assert(NumbersFiddle.median(1 to 5) == 3)
     assert(NumbersFiddle.median(1 to 4) == 2.5)
+
+    assert(NumbersFiddle.median(Seq(1.1,2.3,3.5,4.0)) == 2.9)
+    assert(NumbersFiddle.median(Seq(1.1,2.3,3.5,4.0,5.6)) == 3.5)
   }
 }

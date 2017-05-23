@@ -10,10 +10,12 @@ class NumbersFiddle(numbers: Vector[Int]) {
 object NumbersFiddle {
   def apply(vector: Vector[Int]) = new NumbersFiddle(vector)
 
-  def median(seq: Seq[Int]): Double =
+  def median[A](seq: Seq[A])(implicit num: Numeric[A]): Double = {
+    import num._
     if (seq.size % 2 == 0) {
       val mid = seq.size / 2
-      (seq(mid) + seq(mid - 1)) / 2.0
+      (seq(mid) + seq(mid - 1)).toDouble / 2
     } else
-      seq(seq.size / 2)
+      seq(seq.size / 2).toDouble
+  }
 }
