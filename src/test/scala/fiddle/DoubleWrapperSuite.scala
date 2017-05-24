@@ -2,7 +2,7 @@ package fiddle
 
 import org.scalatest.FunSuite
 
-class DoubleWrapperTest extends FunSuite {
+class DoubleWrapperSuite extends FunSuite {
 
   test("double value comparison"){
     implicit def doubleToDoubleWrapper(d: Double): DoubleWrapper = new DoubleWrapper(d)
