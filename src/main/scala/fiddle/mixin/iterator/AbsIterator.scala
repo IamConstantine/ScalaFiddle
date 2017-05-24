@@ -1,4 +1,4 @@
-package fiddle
+package fiddle.mixin.iterator
 
 abstract class AbsIterator {
   type T

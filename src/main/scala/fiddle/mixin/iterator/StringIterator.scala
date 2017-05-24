@@ -1,4 +1,4 @@
-package fiddle
+package fiddle.mixin.iterator
 
 class StringIterator(s: String) extends AbsIterator {
   type T = Char
