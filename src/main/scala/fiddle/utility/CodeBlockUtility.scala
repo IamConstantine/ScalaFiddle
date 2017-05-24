@@ -1,5 +1,4 @@
-package fiddle
-
+package fiddle.utility
 
 object CodeBlockUtility {
   def timeit[T](block: => T): T = {
@@ -17,7 +16,7 @@ object CodeBlockUtility {
     var result = None: Option[T]
 
     def retryMessage = {
-      (retryConfig.retries - noOfRetries) match {
+      retryConfig.retries - noOfRetries match {
         case 1 => "1 retry "
         case value => "" + value + " retries"
       }
@@ -28,12 +27,11 @@ object CodeBlockUtility {
         result = Option(block)
       }
       catch {
-        case e: Throwable => {
+        case e: Throwable =>
           if (noOfRetries == 0) throw e
           noOfRetries = noOfRetries - 1
           Thread.sleep(retryConfig.sleepDuration)
           println(retryMessage)
-        }
       }
     } while (result.isEmpty)
     result.get

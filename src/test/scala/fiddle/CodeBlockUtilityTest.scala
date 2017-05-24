@@ -1,6 +1,6 @@
 package fiddle
 
-import fiddle.CodeBlockUtility.{RetryConfig, retry, timeit}
+import fiddle.utility.CodeBlockUtility.{RetryConfig, retry, timeit}
 import org.scalatest.FunSuite
 
 class CodeBlockUtilityTest extends FunSuite {

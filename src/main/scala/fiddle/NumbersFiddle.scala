@@ -36,5 +36,5 @@ object NumbersFiddle {
     case _ => gcd(b, a % b)
   }
 
-  def multiplyListAndMap(x: List[Int], y: Map[Int, Double]) = x.filter(y.contains).map(x => x * y(x))
+  def multiplyListAndMap(x: List[Int], y: Map[Int, Double]): List[Double] = x.filter(y.contains).map(x => x * y(x))
 }
