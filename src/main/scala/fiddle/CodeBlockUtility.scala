@@ -15,15 +15,24 @@ object CodeBlockUtility {
   def retry[T](block: => T)(implicit retryConfig: RetryConfig): T = {
     var noOfRetries = retryConfig.retries
     var result = None: Option[T]
+
+    def retryMessage = {
+      (retryConfig.retries - noOfRetries) match {
+        case 1 => "1 retry "
+        case value => "" + value + " retries"
+      }
+    }
+
     do {
       try {
         result = Option(block)
       }
       catch {
         case e: Throwable => {
-          noOfRetries = noOfRetries - 1
           if (noOfRetries == 0) throw e
+          noOfRetries = noOfRetries - 1
           Thread.sleep(retryConfig.sleepDuration)
+          println(retryMessage)
         }
       }
     } while (result.isEmpty)
