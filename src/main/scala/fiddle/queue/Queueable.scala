@@ -1,12 +1,6 @@
 package fiddle.queue
 
-trait Queue[T] {
-  def put(v: T)
-
-  def get: T
-}
-
-abstract class SimpleQueue[T] extends Queue[T] {
+abstract class Queueable[T] extends QueueLike[T] {
   var queue = List[T]()
 
   override def put(v: T) = queue = queue :+ v
@@ -18,5 +12,6 @@ abstract class SimpleQueue[T] extends Queue[T] {
     queue = queue.tail
     front
   }
-
 }
+class IntQueue extends Queueable[Int]
+class StringQueue extends Queueable[String] with InputReversed
