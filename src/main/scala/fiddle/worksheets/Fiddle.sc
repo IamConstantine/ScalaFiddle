@@ -14,7 +14,6 @@ capital += ("France" -> "Paris")
 println(capital("France"))
 
 val aBigInteger = BigInt(102)
-factorial(5)
 val testString = "hello World"
 //if as a ternary operator
 val x = 3
@@ -27,6 +26,7 @@ if (x > y) x else y
 def factorial(x: BigInt): BigInt =
   if (x == 0 || x == 1) 1 else factorial(x - 1) * x
 
+factorial(5)
 def g() = {
   "this String gets lost too"
 }
@@ -37,8 +37,5 @@ def echo(str: String*) = str foreach println
 echo("Hello", "World")
 
 val args = Array("Hello", "World")
-echo(args: _)
-
-
-
+echo(args: _*)
 

@@ -36,5 +36,18 @@ object NumbersFiddle {
     case _ => gcd(b, a % b)
   }
 
+  //Newton's method to find sqrt
+  def sqrt(x: Double): Double = {
+    def isGoodEnough(guess: Double, x: Double): Boolean = Math.abs(guess * guess - x) < 0.01
+
+    def improve(x: Double, guess: Double): Double = (guess + x/ guess) / 2
+
+    def sqrtIter(x: Double, guess: Double): Double = {
+      if (isGoodEnough(guess, x)) guess
+      else sqrtIter(x, improve(x, guess))
+    }
+    sqrtIter(x, 1)
+  }
+
   def multiplyListAndMap(x: List[Int], y: Map[Int, Double]): List[Double] = x.filter(y.contains).map(x => x * y(x))
 }

@@ -32,4 +32,8 @@ class NumbersFiddleSpec extends FlatSpec with Matchers {
     NumbersFiddle.gcd(3, 15) should equal(3)
     NumbersFiddle.gcd(18, 24) should equal(6)
   }
+  "sqrt " should " find sqrt" in {
+    NumbersFiddle.sqrt(2) should equal(1.4166666666666665)
+  }
+
 }
