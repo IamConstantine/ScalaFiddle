@@ -38,14 +38,15 @@ object NumbersFiddle {
 
   //Newton's method to find sqrt
   def sqrt(x: Double): Double = {
-    def isGoodEnough(guess: Double, x: Double): Boolean = Math.abs(guess * guess - x) < 0.01
+    def isGoodEnough(guess: Double, x: Double): Boolean = Math.abs(guess * guess - x) / x < 0.01
 
-    def improve(x: Double, guess: Double): Double = (guess + x/ guess) / 2
+    def improve(x: Double, guess: Double): Double = (guess + x / guess) / 2
 
     def sqrtIter(x: Double, guess: Double): Double = {
       if (isGoodEnough(guess, x)) guess
       else sqrtIter(x, improve(x, guess))
     }
+
     sqrtIter(x, 1)
   }
 
